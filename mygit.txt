@@ -1,0 +1,12 @@
+$ git init	--通过git init命令把这个目录变成Git可以管理的仓库
+$ git add readme.txt	--用命令git add告诉Git，把文件添加到仓库
+$ git commit -m "wrote a readme file"	--用命令git commit告诉Git，把文件提交到仓库
+$ git status	--git status命令可以让我们时刻掌握仓库当前的状态
+$ git diff readme.txt 	--git diff顾名思义就是查看difference，显示的格式正是Unix通用的diff格式
+
+版本控制
+$ git log	--我们用git log命令查看历史记录
+$ git reset --hard HEAD^ 	--回退到上一个版本（这里的版本全部都是以commit之后为版本节点的）
+$ git reset --hard 1094a	--版本指向到指定的hash值得版本上
+$ git reflog	--git reflog用来记录你的每一次命令：
+
