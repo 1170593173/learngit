@@ -10,3 +10,13 @@ $ git reset --hard HEAD^ 	--回退到上一个版本（这里的版本全部都�
 $ git reset --hard 1094a	--版本指向到指定的hash值得版本上
 $ git reflog	--git reflog用来记录你的每一次命令：
 
+工作区：所谓的工作区就是我们可以看到的文件目录
+版本库：工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。
+		Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区。
+		我们每次add就是讲对应工作区的修改内容提交到暂存区，每次commit都是讲暂存区的内容提交到对应的分支上，这里在初始化的git库的时候默认只有master分支
+
+撤销修改
+$ git checkout -- readme.txt	--git checkout -- file可以丢弃工作区的修改（注意是工作区的修改，还未提交到暂存区）
+$ git reset HEAD readme.txt	--命令git reset HEAD <file>可以把暂存区的修改撤销掉（unstage）（这将会把暂存区所有关于该文件未commit的内容全部撤销掉，返回到工作区，然后就可以使用上一条命令了）
+
+删除文件
