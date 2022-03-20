@@ -4,3 +4,7 @@ Git has a mutable index called stage.
 Git tracks changes.
 这里修复了bug
 Creating a new branch is quick and simple.
+
+
+1、正在开发
+2、开发完成
