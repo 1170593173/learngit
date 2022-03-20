@@ -68,3 +68,18 @@ bug分支（stash的使用）
 当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin。
 $ git remote	--要查看远程库的信息
 $ git remote -v		--显示更详细的信息
+协作情况：
+1、默认当前远程代码库中有dev分支
+2、在用户a从dev分支拉取代码到本地之后，其实只有master分支，需要再将远程的dev上的分支拉取到本地 $ git checkout -b dev origin/dev
+3、在用户a添加了某个文件到dev之后，并push到了远程
+4、同时，用户b也在dev上往远程进行push，就会报错，这时需要拉取远程分支同步到本地再push
+5、用户b直接$ git pull，也会失败，需要先：指定本地dev分支与远程origin/dev分支的链接 使用$ git branch --set-upstream-to=origin/dev dev
+6、用户b再次$ git pull，会出现冲突存在的情况，也就是远程的代码会覆盖到你本地的同名代码，如果在你在同名代码中做出了改动，就会产生冲突，需要你手动解决
+7、最后，用户b解决了问题之后，在$ git push origin dev 到远程
+首先，可以试图用git push origin <branch-name>推送自己的修改；
+如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+如果合并有冲突，则解决冲突，并在本地提交；
+没有冲突或者解决掉冲突后，再用git push origin <branch-name>推送就能成功！
+
+
+
